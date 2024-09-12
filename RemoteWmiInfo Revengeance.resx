@@ -117,20 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="StartRemote" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Gnome-Preferences-Desktop-Remote-Desktop.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnConnect.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vgAADr4B6kKxwAAABFdJREFUWEftlm1MU1cYx++Y8QXIxgZY3oQZJjLQsQW7OCarMAURUltEjICgsxNw
+        Y1Asr0XAFkaxwkptC05euo53EJjlTWBCRgtuMcZgzMyy7yxZ9mHhwzJI77PzkJPGhhjX2fph2T/5Jc05
+        /+d/bu957rmX+V//SQnrAhN5Ene9SB0WS4denC4a3t+eo+X+YfpFB1eGMtgjFZ6jIk1EOJ12vo7X7tDe
+        ul/Ddv2YAcMPPoeZR0qo7Dy2Flvm3gTAvERtzlG26p1dJfq41dGlUvh6MdXK2MMyqBs4xWap94RSq3MU
+        L31lcHJJAXpzKnSYUqxMPaqBtLpdP1dV8TZRq+P1SVN4VE1vsuXmvTxo+z7ZStfdM6Abz2FP1vmfoFbn
+        KLGKY7r9UAE35gQ2TC7VgqA64C61OUci1R5hw0gW27nwMVy/w7fStXCO7H0aK1LvjaZWxwv3NUW+46fx
+        BzLQzSTaYLwvhyNSr2FqdY6S5X65zRO5bOvsSdBMJVjpXsiBMv3RtfPO7PwLmjD3dGXo8si9clBPxFvR
+        TB6FgcVKNqbIrYVa7den17iemcrQkjPKEC4d2iChzPeyYbbQop3kg2rssJVecx7kNUetSDq4PtRqn3Bf
+        +ZWc+c65Yshv/uDPY3L/bDpllUTD9clWc1f6Fgqg0fiRlaaxBDDMFrN4cdRqv4Qy/4aO78SWaxN86DMX
+        Qv1gGpC9vpHX9OYWamFiSl1beubL2EbjIVB+e9BKn1kMmQ17ly9oeO7Uap8EMr9UxUAG+9XUKagf/nCd
+        1plMaJ/JtyRd2v6DuDnCP+tqSKikLXZVf+ec1YOoRhOANKRFUO2TS+Ps1+n60N96TGKou3nAhqbRJOg3
+        SSFNEbIcJ31tsd8sBcVQtI2n31wEKbU7Hz/XkUten+Pt0wUW3UQq1A5E2VA/dJAsUgodMxJWN3HCZk5l
+        TIIrg5msQOadTKP+nar6wzaTHmhVkrD2aRHIe/dv4Iv+6A1jffMlkFTJMdGY5xe/2je/uC1urXOuAGQ9
+        ++Fy93tPRX1LCJe+4VsyFMFRtNwxSiz3jj/bGPF7N3kca3oPkA+LyA1Ude2DrtkiiJd6DNIyx4qf/8bu
+        ZHngY/10IVs/cBgqDO/aoDGmgrglZjWh0C+EljhevKwgj/hyr9ta43mLakQI5fqIdSoMkdA+JWYPFbyu
+        pVaHC7/hXHg8ZpNvJOPKTXfVyLtS4Pr4WShrfxuaR0+D6Mt9K68GMjs5HMbN15dxZYKYraRmMwEfRRea
+        YbewEEO2EfBE8yB4Erx3J269+Jk2+i/DTAHojLlsuGDLVTLuT/Aj4NnvTUAv1mAtZmAWZv4jvUzAI9eN
+        gCFeBA4BFwkiBAdEuKQfrw76NU7CWdrmyeDL6i0C9kAw9aAXa7AWMzALMzH7mXrmBRBwMVwUv/cRh14A
+        6qlbQMDbjLcbFwmg4G+HbcGTWm9CAjYUhmCDuRLwH2H4k+AYzjmkCV+QGOZvE6JO9vaOmZsAAAAASUVO
+        RK5CYII=
+</value>
   </data>
-  <data name="Dialog-Apply" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Dialog-Apply.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Power" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Gnome-System-Shutdown.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Gnome-Media-Floppy.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Dialog-Apply-32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Dialog-Apply-32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+  <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="statusStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>196, 17</value>
+  </metadata>
 </root>
