@@ -118,22 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Dialog-Apply-32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Dialog-Apply-32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="StartRemote" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Gnome-Preferences-Desktop-Remote-Desktop.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Dialog-Apply" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Dialog-Apply.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Power" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Gnome-System-Shutdown.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Gnome-Media-Floppy.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Gnome-Preferences-Desktop-Remote-Desktop-0-64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Gnome-Preferences-Desktop-Remote-Desktop-0-64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="gnome-view-refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\gnome-view-refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gnome-Document-Save-0-64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Gnome-Document-Save-0-64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dialog-Apply-32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Dialog-Apply-32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gnome-Media-Floppy-0-32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Gnome-Media-Floppy-0-32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gnome-Media-Floppy-0-32px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Gnome-Media-Floppy-0-32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gnome-Preferences-Desktop-Remote-Desktop-0-32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Gnome-Preferences-Desktop-Remote-Desktop-0-32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gnome-Document-Save-0-64px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Gnome-Document-Save-0-64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
