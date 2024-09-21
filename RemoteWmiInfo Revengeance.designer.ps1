@@ -34,18 +34,19 @@ $form = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.LinkLabel]$linkOS = $null
 [System.Windows.Forms.LinkLabel]$linkSerialAsset = $null
 [System.Windows.Forms.LinkLabel]$linkMakeModel = $null
-[System.Windows.Forms.Button]$button1 = $null
 [System.Windows.Forms.TextBox]$textBox1 = $null
 [System.Windows.Forms.ColumnHeader]$colName = $null
 [System.Windows.Forms.ColumnHeader]$colVersion = $null
 [System.Windows.Forms.ImageList]$imageList16 = $null
 [System.ComponentModel.IContainer]$components = $null
 [System.Windows.Forms.ImageList]$imageList32 = $null
-[System.Windows.Forms.CheckedListBox]$checkedListBox1 = $null
-[System.Windows.Forms.Button]$btnRefreshApps = $null
 [System.Windows.Forms.ListView]$listApps = $null
 [System.Windows.Forms.ColumnHeader]$colPublisher = $null
 [System.Windows.Forms.ColumnHeader]$colInstallDate = $null
+[System.Windows.Forms.Button]$btnAppsCM = $null
+[System.Windows.Forms.Button]$btnAppsRefresh = $null
+[System.Windows.Forms.Button]$btnAppsAppv = $null
+[System.Windows.Forms.Button]$btnEDID = $null
 [System.Windows.Forms.RichTextBox]$rtfLog = $null
 function InitializeComponent
 {
@@ -60,7 +61,7 @@ $btnShutdown = (New-Object -TypeName System.Windows.Forms.Button)
 $tabControl1 = (New-Object -TypeName System.Windows.Forms.TabControl)
 $tabGeneral = (New-Object -TypeName System.Windows.Forms.TabPage)
 $groupBox2 = (New-Object -TypeName System.Windows.Forms.GroupBox)
-$button1 = (New-Object -TypeName System.Windows.Forms.Button)
+$btnEDID = (New-Object -TypeName System.Windows.Forms.Button)
 $textBox1 = (New-Object -TypeName System.Windows.Forms.TextBox)
 $label1 = (New-Object -TypeName System.Windows.Forms.Label)
 $groupBox1 = (New-Object -TypeName System.Windows.Forms.GroupBox)
@@ -81,9 +82,10 @@ $linkOS = (New-Object -TypeName System.Windows.Forms.LinkLabel)
 $linkSerialAsset = (New-Object -TypeName System.Windows.Forms.LinkLabel)
 $linkMakeModel = (New-Object -TypeName System.Windows.Forms.LinkLabel)
 $tabNetwork = (New-Object -TypeName System.Windows.Forms.TabPage)
-$checkedListBox1 = (New-Object -TypeName System.Windows.Forms.CheckedListBox)
 $tabSoftware = (New-Object -TypeName System.Windows.Forms.TabPage)
-$btnRefreshApps = (New-Object -TypeName System.Windows.Forms.Button)
+$btnAppsAppv = (New-Object -TypeName System.Windows.Forms.Button)
+$btnAppsCM = (New-Object -TypeName System.Windows.Forms.Button)
+$btnAppsRefresh = (New-Object -TypeName System.Windows.Forms.Button)
 $imageList16 = (New-Object -TypeName System.Windows.Forms.ImageList -ArgumentList @($components))
 $listApps = (New-Object -TypeName System.Windows.Forms.ListView)
 $colName = (New-Object -TypeName System.Windows.Forms.ColumnHeader)
@@ -101,7 +103,6 @@ $tabControl1.SuspendLayout()
 $tabGeneral.SuspendLayout()
 $groupBox2.SuspendLayout()
 $groupBox1.SuspendLayout()
-$tabNetwork.SuspendLayout()
 $tabSoftware.SuspendLayout()
 $tabLog.SuspendLayout()
 $statusStrip1.SuspendLayout()
@@ -187,6 +188,7 @@ $tabControl1.Controls.Add($tabSoftware)
 $tabControl1.Controls.Add($tabLog)
 $tabControl1.ImageList = $imageList16
 $tabControl1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]98))
+$tabControl1.Margin = (New-Object -TypeName System.Windows.Forms.Padding -ArgumentList @([System.Int32]4))
 $tabControl1.Name = [System.String]'tabControl1'
 $tabControl1.SelectedIndex = [System.Int32]0
 $tabControl1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]535,[System.Int32]438))
@@ -200,7 +202,7 @@ $tabGeneral.ImageKey = [System.String]'computer16.ico'
 $tabGeneral.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]24))
 $tabGeneral.Name = [System.String]'tabGeneral'
 $tabGeneral.Padding = (New-Object -TypeName System.Windows.Forms.Padding -ArgumentList @([System.Int32]3))
-$tabGeneral.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]512,[System.Int32]410))
+$tabGeneral.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]527,[System.Int32]410))
 $tabGeneral.TabIndex = [System.Int32]0
 $tabGeneral.Text = [System.String]'General'
 $tabGeneral.UseVisualStyleBackColor = $true
@@ -208,25 +210,25 @@ $tabGeneral.UseVisualStyleBackColor = $true
 #groupBox2
 #
 $groupBox2.Anchor = ([System.Windows.Forms.AnchorStyles][System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right)
-$groupBox2.Controls.Add($button1)
+$groupBox2.Controls.Add($btnEDID)
 $groupBox2.Controls.Add($textBox1)
 $groupBox2.Controls.Add($label1)
 $groupBox2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]6,[System.Int32]282))
 $groupBox2.Name = [System.String]'groupBox2'
-$groupBox2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]502,[System.Int32]109))
+$groupBox2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]515,[System.Int32]116))
 $groupBox2.TabIndex = [System.Int32]0
 $groupBox2.TabStop = $false
 $groupBox2.Text = [System.String]'Monitor'
 #
-#button1
+#btnEDID
 #
-$button1.Anchor = ([System.Windows.Forms.AnchorStyles][System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Right)
-$button1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]465,[System.Int32]29))
-$button1.Name = [System.String]'button1'
-$button1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]31,[System.Int32]23))
-$button1.TabIndex = [System.Int32]2
-$button1.Text = [System.String]'button1'
-$button1.UseVisualStyleBackColor = $true
+$btnEDID.Anchor = ([System.Windows.Forms.AnchorStyles][System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Right)
+$btnEDID.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]445,[System.Int32]29))
+$btnEDID.Name = [System.String]'btnEDID'
+$btnEDID.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]64,[System.Int32]23))
+$btnEDID.TabIndex = [System.Int32]2
+$btnEDID.Text = [System.String]'EDID'
+$btnEDID.UseVisualStyleBackColor = $true
 #
 #textBox1
 #
@@ -236,7 +238,7 @@ $textBox1.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([Syst
 $textBox1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]157,[System.Int32]29))
 $textBox1.Name = [System.String]'textBox1'
 $textBox1.ReadOnly = $true
-$textBox1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]302,[System.Int32]23))
+$textBox1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]282,[System.Int32]23))
 $textBox1.TabIndex = [System.Int32]1
 $textBox1.WordWrap = $false
 #
@@ -274,7 +276,7 @@ $groupBox1.Controls.Add($linkSerialAsset)
 $groupBox1.Controls.Add($linkMakeModel)
 $groupBox1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]6,[System.Int32]3))
 $groupBox1.Name = [System.String]'groupBox1'
-$groupBox1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]502,[System.Int32]273))
+$groupBox1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]515,[System.Int32]273))
 $groupBox1.TabIndex = [System.Int32]0
 $groupBox1.TabStop = $false
 $groupBox1.Text = [System.String]'Computer'
@@ -287,7 +289,7 @@ $txtMisc.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([Syste
 $txtMisc.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]157,[System.Int32]220))
 $txtMisc.Name = [System.String]'txtMisc'
 $txtMisc.ReadOnly = $true
-$txtMisc.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]339,[System.Int32]23))
+$txtMisc.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]352,[System.Int32]23))
 $txtMisc.TabIndex = [System.Int32]1
 $txtMisc.WordWrap = $false
 #
@@ -296,10 +298,10 @@ $txtMisc.WordWrap = $false
 $txtOS.Anchor = ([System.Windows.Forms.AnchorStyles][System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right)
 $txtOS.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
 $txtOS.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Segoe UI',[System.Single]9,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$txtOS.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]157,[System.Int32]186))
+$txtOS.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]157,[System.Int32]185))
 $txtOS.Name = [System.String]'txtOS'
 $txtOS.ReadOnly = $true
-$txtOS.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]339,[System.Int32]23))
+$txtOS.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]352,[System.Int32]23))
 $txtOS.TabIndex = [System.Int32]1
 $txtOS.WordWrap = $false
 #
@@ -333,7 +335,7 @@ $txtCompRAM.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([Sy
 $txtCompRAM.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]373,[System.Int32]147))
 $txtCompRAM.Name = [System.String]'txtCompRAM'
 $txtCompRAM.ReadOnly = $true
-$txtCompRAM.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]123,[System.Int32]23))
+$txtCompRAM.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]136,[System.Int32]23))
 $txtCompRAM.TabIndex = [System.Int32]1
 $txtCompRAM.WordWrap = $false
 #
@@ -356,7 +358,7 @@ $txtCompCPUSp.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([
 $txtCompCPUSp.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]373,[System.Int32]108))
 $txtCompCPUSp.Name = [System.String]'txtCompCPUSp'
 $txtCompCPUSp.ReadOnly = $true
-$txtCompCPUSp.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]123,[System.Int32]23))
+$txtCompCPUSp.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]136,[System.Int32]23))
 $txtCompCPUSp.TabIndex = [System.Int32]1
 $txtCompCPUSp.WordWrap = $false
 #
@@ -368,7 +370,7 @@ $txtCompModel.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([
 $txtCompModel.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]296,[System.Int32]30))
 $txtCompModel.Name = [System.String]'txtCompModel'
 $txtCompModel.ReadOnly = $true
-$txtCompModel.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]200,[System.Int32]23))
+$txtCompModel.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]213,[System.Int32]23))
 $txtCompModel.TabIndex = [System.Int32]1
 $txtCompModel.WordWrap = $false
 #
@@ -380,7 +382,7 @@ $txtCompAsset.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([
 $txtCompAsset.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]373,[System.Int32]69))
 $txtCompAsset.Name = [System.String]'txtCompAsset'
 $txtCompAsset.ReadOnly = $true
-$txtCompAsset.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]123,[System.Int32]23))
+$txtCompAsset.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]136,[System.Int32]23))
 $txtCompAsset.TabIndex = [System.Int32]1
 $txtCompAsset.WordWrap = $false
 #
@@ -407,7 +409,7 @@ $linkBIOSRam.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([S
 $linkBIOSRam.TabIndex = [System.Int32]3
 $linkBIOSRam.TabStop = $true
 $linkBIOSRam.Text = [System.String]'BIOS, RAM'
-$linkBIOSRam.add_LinkClicked($linkLabel2_LinkClicked)
+$linkBIOSRam.add_LinkClicked($linkBIOSRam_LinkClicked)
 #
 #linkCPUSpeed
 #
@@ -421,7 +423,7 @@ $linkCPUSpeed.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([
 $linkCPUSpeed.TabIndex = [System.Int32]2
 $linkCPUSpeed.TabStop = $true
 $linkCPUSpeed.Text = [System.String]'CPU, Speed'
-$linkCPUSpeed.add_LinkClicked($linkLabel2_LinkClicked)
+$linkCPUSpeed.add_LinkClicked($linkCPUSpeed_LinkClicked)
 #
 #linkExtra
 #
@@ -436,13 +438,12 @@ $linkExtra.TabIndex = [System.Int32]4
 $linkExtra.TabStop = $true
 $linkExtra.Text = [System.String]'Misc'
 $linkExtra.TextAlign = [System.Drawing.ContentAlignment]::MiddleLeft
-$linkExtra.add_LinkClicked($linkLabel2_LinkClicked)
 #
 #linkOS
 #
 $linkOS.AutoSize = $true
 $linkOS.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Segoe UI',[System.Single]9,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$linkOS.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]8,[System.Int32]189))
+$linkOS.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]8,[System.Int32]187))
 $linkOS.Margin = (New-Object -TypeName System.Windows.Forms.Padding -ArgumentList @([System.Int32]5))
 $linkOS.MinimumSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]0))
 $linkOS.Name = [System.String]'linkOS'
@@ -450,7 +451,7 @@ $linkOS.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System
 $linkOS.TabIndex = [System.Int32]4
 $linkOS.TabStop = $true
 $linkOS.Text = [System.String]'OS'
-$linkOS.add_LinkClicked($linkLabel2_LinkClicked)
+$linkOS.add_LinkClicked($linkOS_LinkClicked)
 #
 #linkSerialAsset
 #
@@ -464,7 +465,7 @@ $linkSerialAsset.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList 
 $linkSerialAsset.TabIndex = [System.Int32]1
 $linkSerialAsset.TabStop = $true
 $linkSerialAsset.Text = [System.String]'Serial, Asset'
-$linkSerialAsset.add_LinkClicked($linkLabel2_LinkClicked)
+$linkSerialAsset.add_LinkClicked($linkSerialAsset_LinkClicked)
 #
 #linkMakeModel
 #
@@ -479,56 +480,78 @@ $linkMakeModel.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @(
 $linkMakeModel.TabIndex = [System.Int32]0
 $linkMakeModel.TabStop = $true
 $linkMakeModel.Text = [System.String]'Make, Model'
+$linkMakeModel.add_LinkClicked($linkMakeModel_LinkClicked)
 #
 #tabNetwork
 #
-$tabNetwork.Controls.Add($checkedListBox1)
 $tabNetwork.ImageKey = [System.String]'network-wired16.ico'
 $tabNetwork.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]23))
 $tabNetwork.Name = [System.String]'tabNetwork'
-$tabNetwork.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]522,[System.Int32]410))
+$tabNetwork.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]527,[System.Int32]411))
 $tabNetwork.TabIndex = [System.Int32]2
 $tabNetwork.Text = [System.String]'Network'
 $tabNetwork.UseVisualStyleBackColor = $true
 $tabNetwork.add_Click($tabNetwork_Click)
 #
-#checkedListBox1
-#
-$checkedListBox1.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
-$checkedListBox1.FormattingEnabled = $true
-$checkedListBox1.Items.AddRange([System.Object[]]@([System.String]'THR - Common',[System.String]'THR - Clinical',[System.String]'THPG - Common',[System.String]'THPG - Clinical'))
-$checkedListBox1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]3))
-$checkedListBox1.Name = [System.String]'checkedListBox1'
-$checkedListBox1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]131,[System.Int32]92))
-$checkedListBox1.TabIndex = [System.Int32]0
-#
 #tabSoftware
 #
-$tabSoftware.Controls.Add($btnRefreshApps)
+$tabSoftware.Controls.Add($btnAppsAppv)
+$tabSoftware.Controls.Add($btnAppsCM)
+$tabSoftware.Controls.Add($btnAppsRefresh)
 $tabSoftware.Controls.Add($listApps)
 $tabSoftware.ImageKey = [System.String]'software16.ico'
-$tabSoftware.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]24))
+$tabSoftware.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]23))
 $tabSoftware.Name = [System.String]'tabSoftware'
-$tabSoftware.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]527,[System.Int32]410))
+$tabSoftware.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]527,[System.Int32]411))
 $tabSoftware.TabIndex = [System.Int32]3
 $tabSoftware.Text = [System.String]'Software'
 $tabSoftware.UseVisualStyleBackColor = $true
 #
-#btnRefreshApps
+#btnAppsAppv
 #
-$btnRefreshApps.Anchor = ([System.Windows.Forms.AnchorStyles][System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Right)
-$btnRefreshApps.FlatStyle = [System.Windows.Forms.FlatStyle]::Flat
-$btnRefreshApps.ImageAlign = [System.Drawing.ContentAlignment]::MiddleLeft
-$btnRefreshApps.ImageKey = [System.String]'software16.ico'
-$btnRefreshApps.ImageList = $imageList16
-$btnRefreshApps.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]449,[System.Int32]371))
-$btnRefreshApps.Name = [System.String]'btnRefreshApps'
-$btnRefreshApps.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]75,[System.Int32]32))
-$btnRefreshApps.TabIndex = [System.Int32]1
-$btnRefreshApps.Text = [System.String]'Refresh'
-$btnRefreshApps.TextAlign = [System.Drawing.ContentAlignment]::MiddleRight
-$btnRefreshApps.UseVisualStyleBackColor = $true
-$btnRefreshApps.add_Click($btnRefreshApps_Click)
+$btnAppsAppv.Anchor = ([System.Windows.Forms.AnchorStyles][System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Right)
+$btnAppsAppv.FlatStyle = [System.Windows.Forms.FlatStyle]::Flat
+$btnAppsAppv.ImageAlign = [System.Drawing.ContentAlignment]::MiddleLeft
+$btnAppsAppv.ImageKey = [System.String]'software16.ico'
+$btnAppsAppv.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]84,[System.Int32]374))
+$btnAppsAppv.Name = [System.String]'btnAppsAppv'
+$btnAppsAppv.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]75,[System.Int32]32))
+$btnAppsAppv.TabIndex = [System.Int32]1
+$btnAppsAppv.Text = [System.String]'App-V'
+$btnAppsAppv.TextAlign = [System.Drawing.ContentAlignment]::MiddleRight
+$btnAppsAppv.UseVisualStyleBackColor = $true
+$btnAppsAppv.add_Click($btnRefreshApps_Click)
+#
+#btnAppsCM
+#
+$btnAppsCM.Anchor = ([System.Windows.Forms.AnchorStyles][System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Right)
+$btnAppsCM.FlatStyle = [System.Windows.Forms.FlatStyle]::Flat
+$btnAppsCM.ImageAlign = [System.Drawing.ContentAlignment]::MiddleLeft
+$btnAppsCM.ImageKey = [System.String]'software16.ico'
+$btnAppsCM.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]374))
+$btnAppsCM.Name = [System.String]'btnAppsCM'
+$btnAppsCM.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]75,[System.Int32]32))
+$btnAppsCM.TabIndex = [System.Int32]1
+$btnAppsCM.Text = [System.String]'CCM'
+$btnAppsCM.TextAlign = [System.Drawing.ContentAlignment]::MiddleRight
+$btnAppsCM.UseVisualStyleBackColor = $true
+$btnAppsCM.add_Click($btnRefreshApps_Click)
+#
+#btnAppsRefresh
+#
+$btnAppsRefresh.Anchor = ([System.Windows.Forms.AnchorStyles][System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Right)
+$btnAppsRefresh.FlatStyle = [System.Windows.Forms.FlatStyle]::Flat
+$btnAppsRefresh.ImageAlign = [System.Drawing.ContentAlignment]::MiddleLeft
+$btnAppsRefresh.ImageKey = [System.String]'software16.ico'
+$btnAppsRefresh.ImageList = $imageList16
+$btnAppsRefresh.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]449,[System.Int32]374))
+$btnAppsRefresh.Name = [System.String]'btnAppsRefresh'
+$btnAppsRefresh.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]75,[System.Int32]32))
+$btnAppsRefresh.TabIndex = [System.Int32]1
+$btnAppsRefresh.Text = [System.String]'Refresh'
+$btnAppsRefresh.TextAlign = [System.Drawing.ContentAlignment]::MiddleRight
+$btnAppsRefresh.UseVisualStyleBackColor = $true
+$btnAppsRefresh.add_Click($btnAppsRefresh_Click)
 #
 #imageList16
 #
@@ -550,7 +573,7 @@ $listApps.HideSelection = $false
 $listApps.Items.AddRange([System.Windows.Forms.ListViewItem[]]@($listViewItem1))
 $listApps.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]3))
 $listApps.Name = [System.String]'listApps'
-$listApps.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]521,[System.Int32]362))
+$listApps.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]521,[System.Int32]365))
 $listApps.TabIndex = [System.Int32]0
 $listApps.UseCompatibleStateImageBehavior = $false
 $listApps.View = [System.Windows.Forms.View]::Details
@@ -582,7 +605,7 @@ $tabLog.ImageKey = [System.String]'logviewer16.ico'
 $tabLog.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]24))
 $tabLog.Name = [System.String]'tabLog'
 $tabLog.Padding = (New-Object -TypeName System.Windows.Forms.Padding -ArgumentList @([System.Int32]3))
-$tabLog.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]522,[System.Int32]409))
+$tabLog.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]527,[System.Int32]410))
 $tabLog.TabIndex = [System.Int32]1
 $tabLog.Text = [System.String]'Log'
 $tabLog.UseVisualStyleBackColor = $true
@@ -601,7 +624,7 @@ $rtfLog.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([S
 $rtfLog.Name = [System.String]'rtfLog'
 $rtfLog.ReadOnly = $true
 $rtfLog.ScrollBars = [System.Windows.Forms.RichTextBoxScrollBars]::Vertical
-$rtfLog.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]510,[System.Int32]397))
+$rtfLog.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]515,[System.Int32]362))
 $rtfLog.TabIndex = [System.Int32]0
 $rtfLog.Text = [System.String]''
 #
@@ -615,7 +638,7 @@ $btnConnect.ImageKey = [System.String]'Apply32'
 $btnConnect.ImageList = $imageList32
 $btnConnect.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]428,[System.Int32]60))
 $btnConnect.Name = [System.String]'btnConnect'
-$btnConnect.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]119,[System.Int32]33))
+$btnConnect.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]119,[System.Int32]32))
 $btnConnect.TabIndex = [System.Int32]5
 $btnConnect.Text = [System.String]'Connect'
 $btnConnect.TextAlign = [System.Drawing.ContentAlignment]::MiddleRight
@@ -631,6 +654,7 @@ $statusStrip1.Name = [System.String]'statusStrip1'
 $statusStrip1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]559,[System.Int32]22))
 $statusStrip1.TabIndex = [System.Int32]4
 $statusStrip1.Text = [System.String]'statusStrip1'
+$statusStrip1.add_ItemClicked($statusStrip1_ItemClicked)
 #
 #StatusLabel1
 #
@@ -689,7 +713,6 @@ $groupBox2.ResumeLayout($false)
 $groupBox2.PerformLayout()
 $groupBox1.ResumeLayout($false)
 $groupBox1.PerformLayout()
-$tabNetwork.ResumeLayout($false)
 $tabSoftware.ResumeLayout($false)
 $tabLog.ResumeLayout($false)
 $statusStrip1.ResumeLayout($false)
@@ -729,18 +752,19 @@ Add-Member -InputObject $form -Name linkExtra -Value $linkExtra -MemberType Note
 Add-Member -InputObject $form -Name linkOS -Value $linkOS -MemberType NoteProperty
 Add-Member -InputObject $form -Name linkSerialAsset -Value $linkSerialAsset -MemberType NoteProperty
 Add-Member -InputObject $form -Name linkMakeModel -Value $linkMakeModel -MemberType NoteProperty
-Add-Member -InputObject $form -Name button1 -Value $button1 -MemberType NoteProperty
 Add-Member -InputObject $form -Name textBox1 -Value $textBox1 -MemberType NoteProperty
 Add-Member -InputObject $form -Name colName -Value $colName -MemberType NoteProperty
 Add-Member -InputObject $form -Name colVersion -Value $colVersion -MemberType NoteProperty
 Add-Member -InputObject $form -Name imageList16 -Value $imageList16 -MemberType NoteProperty
 Add-Member -InputObject $form -Name components -Value $components -MemberType NoteProperty
 Add-Member -InputObject $form -Name imageList32 -Value $imageList32 -MemberType NoteProperty
-Add-Member -InputObject $form -Name checkedListBox1 -Value $checkedListBox1 -MemberType NoteProperty
-Add-Member -InputObject $form -Name btnRefreshApps -Value $btnRefreshApps -MemberType NoteProperty
 Add-Member -InputObject $form -Name listApps -Value $listApps -MemberType NoteProperty
 Add-Member -InputObject $form -Name colPublisher -Value $colPublisher -MemberType NoteProperty
 Add-Member -InputObject $form -Name colInstallDate -Value $colInstallDate -MemberType NoteProperty
+Add-Member -InputObject $form -Name btnAppsCM -Value $btnAppsCM -MemberType NoteProperty
+Add-Member -InputObject $form -Name btnAppsRefresh -Value $btnAppsRefresh -MemberType NoteProperty
+Add-Member -InputObject $form -Name btnAppsAppv -Value $btnAppsAppv -MemberType NoteProperty
+Add-Member -InputObject $form -Name btnEDID -Value $btnEDID -MemberType NoteProperty
 Add-Member -InputObject $form -Name rtfLog -Value $rtfLog -MemberType NoteProperty
 }
 . InitializeComponent

@@ -35,7 +35,8 @@ function _UpdateLog {
 function _GetApps($ComputerName, $Session) {
     $AppSplat = @{
         ScriptBlock = {
-            Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*,HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | ? { $_.DisplayName -and $_.DisplayVersion }
+            Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*,HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | 
+            ? { $_.DisplayName -and $_.DisplayVersion -and !$_.SystemComponent}
         }
     }
     if($Session) {
@@ -63,7 +64,7 @@ $form_Load = {
     $this.comboHostName.Text = $env:COMPUTERNAME
 }
 
-$btnRefreshApps_Click = {
+$btnAppsRefresh_Click = {
     $this.Enabled = $false
 
     $form.tabControl1.SelectedTab = $form.tabLog
@@ -96,15 +97,33 @@ $btnRefreshApps_Click = {
     $this.Enabled = $true
 }
 
+$linkOS_LinkClicked = {
+    scb $form.txtOS
+}
+
+$linkBIOSRam_LinkClicked = {
+    "{0}, {1}" -f $form.txtCompBIOS.Text, $form.txtCompRAM.Text | scb
+}
+
+$linkCPUSpeed_LinkClicked = {
+    "{0}, {1}" -f $form.txtCompCPU.Text, $form.txtCompCPUSp.Text | scb
+}
+
+$linkSerialAsset_LinkClicked = {
+    "{0}, {1}" -f $form.txtCompSerial.Text, $form.txtCompAsset.Text | scb
+}
+
+$linkMakeModel_LinkClicked = {
+    "{0}, {1}" -f $form.txtCompMake.Text, $form.txtCompModel.Text | scb
+}
+
 $btnRemote_Click = {
     if(Test-Path "$env:SMS_ADMIN_UI_PATH\CmRcViewer.exe") {
         $RemotePath = "$env:SMS_ADMIN_UI_PATH\CmRcViewer.exe"
-    } elseif(test-path "\\thrnas01\softrep\PowerTools\Resources\CmRcViewer\CmRcViewer.exe") {
-        $RemotePath = "\\thrnas01\softrep\PowerTools\Resources\CmRcViewer\CmRcViewer.exe"
     }
 
     if($RemotePath) {
-        Start-Process $RemotePath -Args @($form.comboHostName.Text, '\\rmecmpsp01.txhealth.org')
+        Start-Process $RemotePath -Args @($form.comboHostName.Text)
     } else {
         _updateLog -message "Failed to find Remote Control Viewer" -status
     }
@@ -167,8 +186,8 @@ $btnConnect_Click = {
     $form.txtCompSerial.Text = $BIOSProperties.SerialNumber
     $form.txtCompAsset.Text = $CSPProperties.IdentifyingNumber
 
-    $form.txtCompCPU.Text = $W32Processor.Description
-    $form.txtCompCPUSp.Text = $W32Processor.MaxClockSpeed
+    $form.txtCompCPU.Text = $W32Processor.Name
+    $form.txtCompCPUSp.Text = $W32Processor.MaxClockSpeed[0]
     #endregion update General tab
 
     #region get software
